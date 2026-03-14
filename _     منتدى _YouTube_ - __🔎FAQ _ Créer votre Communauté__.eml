@@ -1,0 +1,336 @@
+Return-path: <3NGdJaRAKCnkebim-Zljjrkfqfbpdlldib.ZljXifpzxz2xxfZilra.Zlj@scoutcamp.bounces.google.com>
+Original-recipient: rfc822;alis202500@icloud.com
+Received: from p00-icloudmta-smtpin-us-west-1a-100-percent-35 by p124-mailgateway-smtp-79c5c7c84c-84szn (mailgateway 2544B77)
+	with SMTP id fa8f508b-3f0b-48e1-9388-b1174ad4df13 
+	for <alis202500@icloud.com>; Mon, 22 Dec 2025 15:43:55 GMT
+X-ICLOUD-MAIL-BWL: 1
+X-Apple-MoveToFolder: INBOX 
+X-Apple-Action: WL/INBOX
+X-Apple-UUID: fa8f508b-3f0b-48e1-9388-b1174ad4df13
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	by p00-icloudmta-smtpin-us-west-1a-100-percent-35 (Postfix) with ESMTPS id DCE64C000A1
+	for <alis202500@icloud.com>; Mon, 22 Dec 2025 15:43:53 +0000 (UTC)
+X-ICL-Info: GAtbRVYDBVFFSlVESgQEUVUKE0oWX1gHVQoPB0UCBltbQVNZSgEDTERAUVcdVAtROz4CPRlidyk2Fw0SGllbTy8VDB0KW1ATExsWExRcUgsXVzwbEmhfBAUDHg1KSE4ELxAKBRkebA4fORUUF0VCARQUFlkaX0MMFhwVWR9fWQUZHEgUF10WBBFEARgXV1oHWxoJGlhCVV8UFQ8ESgAEV0VJJh4bXFkXEVcFGBUQXgcZFlsaGVlaTwUeV1oeAQ9VWx4JGB9cU0wWFgtXCEREXxgYDxtVQFFTWB9XTk8eUQ0aHgoSVlNZD1UdAkofX1kFGRxIFBddFg8cHVtLQVMHVBAaXxZNCFNWF0EDRUsDBVZCQFFCSlVUWhcdUEFAAgNVTBtVRFUBBlJGTVZASx0HU0RIUkFABA4iEhYJEBRVGAEaFFg=
+X-ICL-Score: 2.33303332423
+Authentication-Results: bimi.icloud.com; bimi=none
+X-ARC-Info: policy=fail; arc=none; r1=-20; r2=0
+Authentication-Results: arc.icloud.com; arc=none
+Authentication-Results: dmarc.icloud.com; dmarc=pass header.from=google.com
+X-DMARC-Policy: v=DMARC1; p=reject; rua=mailto:mailauth-reports@google.com
+X-DMARC-Info: pass=pass; dmarc-policy=reject; s=r1; d=r1; pdomain=google.com
+Authentication-Results: dkim-verifier.icloud.com; dkim=pass header.d=google.com header.i=@google.com header.b=WNEER6wG
+Received-SPF: pass (spf.icloud.com: domain of 3NGdJaRAKCnkebim-Zljjrkfqfbpdlldib.ZljXifpzxz2xxfZilra.Zlj@scoutcamp.bounces.google.com designates 209.85.215.197 as permitted sender) receiver=spf.icloud.com; client-ip=209.85.215.197; helo=mail-pg1-f197.google.com; envelope-from=3NGdJaRAKCnkebim-Zljjrkfqfbpdlldib.ZljXifpzxz2xxfZilra.Zlj@scoutcamp.bounces.google.com
+Authentication-Results: spf.icloud.com; spf=pass (spf.icloud.com: domain of 3NGdJaRAKCnkebim-Zljjrkfqfbpdlldib.ZljXifpzxz2xxfZilra.Zlj@scoutcamp.bounces.google.com designates 209.85.215.197 as permitted sender) smtp.mailfrom=3NGdJaRAKCnkebim-Zljjrkfqfbpdlldib.ZljXifpzxz2xxfZilra.Zlj@scoutcamp.bounces.google.com
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-b9b9e8b0812so7375583a12.0
+        for <alis202500@icloud.com>; Mon, 22 Dec 2025 07:43:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1766418228; x=1767023028; darn=icloud.com;
+        h=to:from:subject:message-id:gmsai:references:feedback-id:reply-to
+         :date:mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=m66cByykan8GqX0UaPrg+Q+CImRapId5Rg8/EbneeR8=;
+        b=WNEER6wGPKDjDTQ3ZPd5S0PC/SsDMPvE8cXTShoPP6F5JKkaRcPjePaC3VmGevlfqY
+         t9nZ7xGMBAdh2qNraxavd2s2Jrad7YmEIay3hbXXPK2Ua2cNbZ8Cz+VJ5/aWzCXN2Jr3
+         JUD3JkmYEBS0XrAlh23ouGNmga0LqHltf5OG6f2AxiwdNfa0Tnz4DM0XJgE7c4rn+2aR
+         A0bW/GGVHnYzydtTsv1Wr3yl72MgSk0i6VP0YXb5xOnGRe90FokopawUvBePceuoHbR4
+         1iFPe9Tv8W/1H4oVP/TTFO+h8k/Nzls7AOYZA21hRPnTkG39bUwSVB9wUcnOZIR3pE1N
+         g1MA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766418228; x=1767023028;
+        h=to:from:subject:message-id:gmsai:references:feedback-id:reply-to
+         :date:mime-version:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=m66cByykan8GqX0UaPrg+Q+CImRapId5Rg8/EbneeR8=;
+        b=Wi117JWhubyZ5H8L551NXnq2MmSJUKFQD7JCOi74biHqD3uhjbZJWuOmWdwAZ1cdP2
+         RK5fhFyDLX6kkvgf7fZR4B5yNtFWTIzzvQxgfe9hYYnJKshgAWA+H57T1nRS4xwRLIpi
+         2aqk57IPkpSYvmXl7RtSITga7y4uLJNP0RH0mLFGYst+VAgsRg3qO5xntAVqqp/rJ23p
+         Rxzz8l7c97eYuKZeXbrQmsKpcR7FNkh8fGFvjcrh5Ni7bPuOC3ajVVijOtlxCvNWe/7B
+         3zaX/9D/U5hrV0nSrz0vU/ztJYry7LQMJRxPTQxfiYvc+bcIIyXBzAWr79ZxWTITDi9B
+         /BYQ==
+X-Gm-Message-State: AOJu0YyKfuPKT1W7JmEmYSIA5kPWvSKNH0J8PRtOl6HfOdxQzdg/dUWY
+	5OO5mG9Ywe+8xZ0rIvEswqCOa4xBIdVxtF4Qp62f+9UaupscunC0sxzAzWjV
+X-Google-Smtp-Source: AGHT+IG+AlHSUoqpMRzhY439kSNNURyQovZWc3A3NLnNbITHbka2taY00qf3cCiBfyDgRedPuA4dSf4=
+MIME-Version: 1.0
+X-Received: by 2002:a05:7022:1a83:b0:11b:ca88:c4f5 with SMTP id
+ a92af1059eb24-121722fe0e2mr11384113c88.35.1766418228227; Mon, 22 Dec 2025
+ 07:43:48 -0800 (PST)
+Date: Mon, 22 Dec 2025 07:43:48 -0800
+Reply-To: Help Communities <help-communities@google.com>
+X-Google-Id: 193311
+Feedback-ID: P-213-0:C10034073:M100066661-ar:gamma
+References: <396763700@supportforums.google.com>
+gmsai: true
+X-Notifications: 4819f5d308a60000
+X-Notifications-Bounce-Info: Ae2mSnwUohkAlNDC7Sv_h7uC9_UNR0i3EITFj_cZ0Kt0AYrnuyf8_0bu-tfC2wSX4G1OBqtX0X--1GY9oQdUZ4Z6FsdkY7cFouJHZg8N1LKLbTA976inqHWlGUG5Lw6RoNeAcRP2ClPUWgetZxX-WyxxxCMnPafFiYzVlbSHzU0EjULjry1Mdv3HonMHGkSwyC7Gn23LLjZqJ0Kv3DdoOqXQAmyATZApPA3v0S-Ta5qkJMW_Bg5HgoL27OqFG5TR6Zd-Voqr_vV7G9dxNHMSyaG8LUWjhJn_-2PUCbysJoRIdyZC6RogB3cPTwfE4jkbLkU1F2ySxN9m3jZLh79d7M8Ocj-mmRhtnvp6ThG71XYh2nSBqX1uJxVdsUR6eqh-Ab98QFF-bjpvzWv8xqLlqWKARpZgJFPvKiUYT2lIQuB-JuwOUSMX07UfFxKZL-m3zPihS3cZs5aif3UVLMlQT7npRUVAZKffMNIPFM4jNeNpafLxy0UM5cSM7Imp8qw--za1Ukyc7gNiSRXOL9Kf3ANjAwNjA0MDQxNTM1NTk2OTMzMg
+Message-ID: <9c16ec9a58e4b8e2333479752eb8bd6682579b33-10034073-111146848@google.com>
+Subject: =?UTF-8?B?ICAgICAg2YXZhtiq2K/ZiSDigI5Zb3VUdWJlCiAtICLigI7wn5SORkFRIDogQ3LDqWVyIA==?=
+	=?UTF-8?B?dm90cmUgQ29tbXVuYXV0w6kiCg==?=
+From: Help Communities <help-communities@google.com>
+To: alis202500@icloud.com
+Content-Type: multipart/alternative; boundary="00000000000004b23106468c4bea"
+X-MANTSH: 1TFkXGxoaGhEKWUQXa21sTBtMWxJdThwRCllNF3pPWFlFREtGa0ZGRV0RCl9ZFxs
+ bGBEKX00XZEVETxEKWUkXGnEaEBp3BhMYcRsfHRAbEncGGBoGGhEKWV4XbGx5EQpDThccfF4dS
+ V8cbxNpW2djb0BcWFhDZ0tLSUVcdWEdYhl+cBEKWFwXGQQaBB8eBRsaBBscHwQYGAQYHhwQGx4
+ aHxoRCl5ZF01MXVx8EQpNXBcYGRoRCkxaF2BtRU1NEQpMRhdvTWsRCkNaFxgaEwQSHwQYGx8EG
+ xMdEQpCXhcbEQpCXBcbEQpeThcbEQpCSxdvSVgaYmVYYmBdXBEKQkkXb0lYGmJlWGJgXVwRCkJ
+ FF3pJE1kfcGkdQFlbEQpCThdvSVgaYmVYYmBdXBEKQkwXZG9jeR1JTFxbeRgRCkJsF2dba2VeR
+ GhgTH4TEQpCQBd6U2AYQmESZxlObREKQlgXYXxhfxhMXBhlYHARClpYFxMRCnBoF2l4UAEccEF
+ JfGQfEAcZGhEKcGgXbm1pE0UeGVliW0cQGhEKcGgXZ2VyWUEYQUhIHkIQGhEKcGgXbWVfXV5cT
+ VBIZVMQGhEKcGgXbWRnbhpLYkBwUBIQGhEKcGgXbltBQGx7T31da2sQGhEKcGgXYBxJHn8Yf2B
+ ASF0QGhEKcGgXYH5AG2MeUGZ5GW4QGhEKcH8Xb0RhUBITfxscEn4QBxsaGBEKcF8XYU1CTnAae
+ VxQT1IQBxIfEQpwfRdhch5cGGUSGENzbBAHHBoRCnBfF29zT1xyY0N7Wn17EAcZGhEKcH0XZ01
+ DeFJ+bEB5UE8QGhEKcH8XbUNlZBhmSE1hfxoQBxsaHxEKcF8XYFgSQl1MRkZBZXsQGRoRCnB9F
+ 2dGa1hbeAF8f2J4EBoRCnB/F2dJQ3pgEnBSAWJoEAcbGhMRCnBfF2BjbXldUGJzXkB5EBkaEQp
+ wfRdga3BmbG5NYx9EQRAHGRoRCnB9F2dNQ3hSfmxAeVBPEBoRCnBfF295bVwSX3ocEl1bEAcSH
+ xEKcH0XbUdTYgF5TlBAGX8QGhEKcH0Xa3h9fAFbWVhFcE4QGhEKcH0XekZseGtbWERHGGYQGhE
+ KcH0XaR5vRHJDYk1gbHAQGhEKcH8XbWRpTm0BTUV7TEAQBx0dEQpwfRdkfUdue1NFcmMZfhAHG
+ xobEQpwfRdjWU8cRkxneWtGEhAaEQpwXxdnZHlyZH9IXVt/ARAHGRoRCnB9F2JseGt9WkRtbWx
+ MEBoRCnBfF2lbH2d6ZRNzY1tQEAcZGhEKcH0Xem9pYn9bHx9oTXsQBxkaEQpwbBdjZ05ZbhNmf
+ kt8QRAZGhEKbX4XGhEKWE0XSxE=
+X-Proofpoint-GUID: 6Vt7cu6E9CqMIEjvrriMaacov_K7H3TZ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjIyMDE0NCBTYWx0ZWRfX1yKbTHuWdJ/M
+ xKNAZuTMGNI//KbefqbaIGGzvbF+exAQnBHdSfn8FVfD3/em3d7rWaPgs09MJZPsLOKG4A5P/Ct
+ MNH6XS0bkzx3nBgbWlTyVN44wPJS+8OEA4gAxnysxVWcKeyRwBDRwxSHABjnEX4Ig7tZcD19798
+ 0adjdJdSiqrGv9aDEsn769/p8xthd318LJ/Ei1NSZeZN4Cb07njjV6kUFY6fHfpkFuzDQTgNxng
+ B/B8ZgLLbrXTyKmmnOhIoiynXJvGjYy3DzZ5VgdccbjSIjRxR8c7LWufsAjesCp/ubhUQQW6Vy7
+ O7m1eMm/zPbm64zelG0
+X-Proofpoint-ORIG-GUID: 6Vt7cu6E9CqMIEjvrriMaacov_K7H3TZ
+X-JNJ: AAAAAAABDzh/yCDO8pMTSH8o8rup8sOFSjwzi2ChOGTA4zIV7IiatYGUtFucgbSOQsycg1Kdg0IQM9quO5qovYRRlBOH/2v6jNPkWcoIqmZjJuK3NeRv63bjLy7NzKpiXxfg2KxBR7aExWR7gTBxPO1g3IA9QYYabJ9kn3HOn6IlWWvLuqke6bMpSFDMF4sbdPB6BUSmnqp5ieCXbUTW3vBu6l2lP78EVgFLJI7T+iJXNKMSHXdHgL5Kjaf1aZyeXCEOHGt9yOIhsjTecJlB/sMKT4VlxKb7q8ZxbLqnJqd8TTQdVbZn5EHfE+ddpqVEvrWkBzb+8YN5yC18EoScGfLljzkimcZfKuCPtOVG4D1KUqwbkXqztaoruC6/dN87aLvUymGaC7z0zqwww94JVLj33StdYFG+wAYe3KDP5eAr0l46jmFfiqfQoa6tJTHIIvbfhP2OdysX5XEROHw47YgfkMAezR7L5AHSrPsqgY3lMFDbD6x9UgISbIrX8LkiCCNqh+SS/D/rha+zQQ4TlmIoKBVpRx/qVSNjpawhr7sxri5GjFEyvQoMUBJtRoivTM5h/rabqWaDufJgGeu9EURao00EdcIhjJt+uLDnwZBzSz95/rdPGEvAu+P7piYq81SxeBaXJwFntBZyINzJnxTMTpfrvsRBHSEhbx+AIvoNF8O/QcjOdLNLb+XI+x0LYWYrQ8M7QsXKoqYheFgcMCrGS/ncignRD6j8rzLT9wkNj8oijVsR7z27ZWeQvK3X1vLUFjsa6kra0xFnFLUQcto60tW9YwXQOkkBl8nwaQevk1DjYPAUHIIBhq1lWzYgMiqstEIWVE1oATXc1j+DFJaXGgt1M2+CxOaAKTJYe4XDD3o+7qE4MIx+SR2Xn2gekcdkKCvWN7L7EAOegBIeLKMgfB8bN+nRJlP9tW7wvX/8sL3w+rd7yHZyDveWfamiBcazeTlI9xOsSDoPr2buy/tJsA==
+
+--00000000000004b23106468c4bea
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+4oCLDQoNCtmF2YbYqtiv2Ykg4oCOWW91VHViZQ0KDQrZhdix2K3YqNmL2KcgVXNlciA0OTE3MzE4
+MjY4NTc5NzI5MTDYjA0K2KrZhSDZhti02LEg2KXYudmE2KfZhiDYrNiv2YrYryDYudmE2Ykg2YXZ
+htiq2K/ZiSBZb3VUdWJlOiDwn5SORkFRIDogQ3LDqWVyIHZvdHJlIENvbW11bmF1dMOpDQoNCg0K
+DQrZhdiv2YrYsSDYp9mE2YXZhtiq2K/ZiQ0KSmVhbi0gQmFwdGlzdGUNCg0KDQpMZXMgQ29tbXVu
+YXV0w6lzIHNvbnQgdW4gZXNwYWNlIGTDqWRpw6kgb8O5IHZvdXMgcG91dmV6IMOpY2hhbmdlciBh
+dmVjIHZvdHJlICANCmF1ZGllbmNlLCBkaXJlY3RlbWVudCBkZXB1aXMgdm90cmUgY2hhw65uZS4g
+RGFucyB2b3RyZSBDb21tdW5hdXTDqSwgdm9zICANCmFib25uw6lzIHBldXZlbnQgZGlzY3V0ZXIg
+ZGUgdm9zIHZpZMOpb3MsIHBhcnRhZ2VyIGRlcyBwaG90b3MsIGxhbmNlciBkZXMgIA0Kc29uZGFn
+ZXMgZXQgZWZmZWN0dWVyIGQnYXV0cmVzIGFjdGl2aXTDqXMgcXVpIGfDqW7DqHJlbnQgcGx1cyBk
+J2VuZ2FnZW1lbnQgIA0KYXV0b3VyIGRlIHZvcyB2aWTDqW9zLiBWb3VzIHBvdXZleiBjaG9pc2ly
+IGRlIHByb3Bvc2VyIG91IG5vbiB1bmUgQ29tbXVuYXV0w6kgIA0Kc3VyIHZvdHJlIGNoYcOubmUu
+DQoNCg0KVm91cyBwb3V2ZXogY3LDqWVyIHZvdHJlIHByb3ByZSBDb21tdW5hdXTDqSBzaSA6DQoN
+Cg0Kdm91cyBwb3V2ZXogcHVibGllciBkZXMgcG9zdHMgOw0Kdm91cyBhdmV6IHBsdXMgZGUgMTYg
+YW5zIGV0IHF1ZSB2b3RyZSBjaGHDrm5lIG4nZXN0IHBhcyBjb25maWd1csOpZSBlbiB0YW50ICAN
+CnF1J2V4cMOpcmllbmNlIHN1cGVydmlzw6llIDsNCnZvdHJlIGNoYcOubmUgbidlc3QgcGFzIGTD
+qWZpbmllIGNvbW1lIGNvbsOndWUgcG91ciBsZXMgZW5mYW50cyA7DQp2b3RyZSBjaGHDrm5lIG4n
+ZXN0IHBhcyB1bmUgY2hhw65uZSBWRVZPLg0KDQpEw6ljb3V2cmV6IGNvbW1lbnQgbW9kw6lyZXIg
+dm90cmUgQ29tbXVuYXV0w6kgZXQgZMOpZmluaXIgZGVzIGNvbnNpZ25lcyBwb3VyICANCnZvdHJl
+IGNoYcOubmUgY29uY2VybmFudCBsZXMgcG9zdHMuDQoNCg0KQWN0aXZlciB2b3RyZSBDb21tdW5h
+dXTDqQ0KDQoNCkNvbm5lY3Rlei12b3VzIMOgIFlvdVR1YmUuDQpBY2PDqWRleiDDoCBsYSBwYWdl
+IGRlIHZvdHJlIGNoYcOubmUgQ2xpcXVleiBzdXIgbCdvbmdsZXQgUG9zdHMuDQpDbGlxdWV6IHN1
+ciBBY3RpdmVyIG1hIGNvbW11bmF1dMOpLg0KDQpWb3VzIHBvdXZleiDDqWdhbGVtZW50IGFjdGl2
+ZXIgdm90cmUgQ29tbXVuYXV0w6kgZGFucyBZb3VUdWJlIFN0dWRpbywgZGFucyAgDQpsZXMgcGFy
+YW3DqHRyZXMgQ29udHLDtGxlcyBkJ2FjY8OocyBhdSBjb250ZW51IG91IGRhbnMgbCdvbmdsZXQg
+IkNvbW11bmF1dMOpIi4gIA0KUG91ciBjZSBmYWlyZSwgc8OpbGVjdGlvbm5leiBQb3N0cyBkZSBz
+cGVjdGF0ZXVycyBlbiBoYXV0IGRlIGxhIHBhZ2UsIHB1aXMgIA0KQWN0aXZlci4NCg0KDQpSw6lk
+aWdleiB1biBwb3N0IGRlIGJpZW52ZW51ZQ0KDQoNClVuZSBmb2lzIHF1ZSB2b3VzIGF2ZXogYWN0
+aXbDqSB2b3RyZSBDb21tdW5hdXTDqSwgdm91cyBwb3V2ZXogY3LDqWVyIHVuIHBvc3QgIA0KZGUg
+YmllbnZlbnVlIHBvdXIgdm9zIGFib25uw6lzLg0KDQoNClN1ciB2b3RyZSBvcmRpbmF0ZXVyLCBh
+Y2PDqWRleiDDoCBsYSBwYWdlIGRlIHZvdHJlIGNoYcOubmUuDQpDbGlxdWV6IHN1ciBBY2PDqWRl
+ciDDoCBsYSBjb21tdW5hdXTDqS4NCkRhbnMgbGEgem9uZSBzaXR1w6llIGVuIGhhdXQgZGUgbGEg
+cGFnZSA6DQoNClLDqWRpZ2V6IHZvdHJlIHBvc3QgZGUgYmllbnZlbnVlLCBham91dGV6IGRlcyBp
+bWFnZXMgb3UgY3LDqWV6IHVuIHNvbmRhZ2UuDQoNCkNsaXF1ZXogc3VyIFB1YmxpZXIuDQoNClLD
+qXBvbmRyZSDDoCB1biBwb3N0DQoNCg0KTG9yc3F1J3VuIHNwZWN0YXRldXIgcHVibGllIHVuIHBv
+c3QgZGFucyB2b3RyZSBDb21tdW5hdXTDqSwgdm91cyBwb3V2ZXogbHVpICANCnLDqXBvbmRyZS4N
+Cg0KDQpTdXIgdm90cmUgb3JkaW5hdGV1ciwgYWNjw6lkZXogw6AgbGEgcGFnZSBkZSB2b3RyZSBj
+aGHDrm5lLg0KQ2xpcXVleiBzdXIgQWNjw6lkZXIgw6AgbGEgY29tbXVuYXV0w6kuDQpBY2PDqWRl
+eiBhdSBwb3N0IGF1cXVlbCB2b3VzIHNvdWhhaXRleiByw6lwb25kcmUgY2xpcXVleiBzdXIgQ29t
+bWVudGFpcmVzIC4gIA0KTGEgcGFnZSAiQ29tbWVudGFpcmVzIHN1ciBsZSBwb3N0IiBzJ2FmZmlj
+aGUuDQpTYWlzaXNzZXogdm90cmUgcsOpcG9uc2UuDQpDbGlxdWV6IHN1ciBQdWJsaWVyLg0KDQoN
+CkonZXNww6hyZSBxdWUgY2VzIMOpbMOpbWVudHMgdm91cyBhaWRlcm9udC4NCg0KDQpKZWFuLUJh
+cHRpc3RlIFRlYW1Zb3VUdWJlDQoNCg0K2LnYsdi2INin2YTYpdi52YTYp9mGDQoNCtmE2YYg2YrY
+qtmFINmG2LTYsSDYp9mE2LHYr9mI2K8g2LnZhNmJINmH2LDZhyDYp9mE2LHYs9in2YTYqSDYp9mE
+2KXZhNmD2KrYsdmI2YbZitipLg0KDQoNCtil2YrZgtin2YEg2KfZhNil2LTYudin2LHYp9iqINio
+2LTYo9mGINmH2LDYpyDYp9mE2YXZhtiq2K/ZiS4NCg0KDQrZgdix2YrZgiDYr9i52YUgR29vZ2xl
+DQoNCsKpIDIwMjUgR29vZ2xlIEluYy4NCg0KMTYwMCBBbXBoaXRoZWF0cmUgUGFya3dheQ0KDQpN
+b3VudGFpbiBWaWV3LCBDQSA5NDA0Mw0KDQoNCg==
+--00000000000004b23106468c4bea
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+  &#8203;
+<html>
+
+<body style=3D"font: 14px/20px 'Google Sans Text', Roboto, sans-serif;
+             text-align: center;">
+  <div style=3D"display: inline-block;
+              max-width: 732px;
+              text-align: left;
+              width: 100%;">
+    <div style=3D"color: #1a73e8;
+                font-family: 'Google Sans', 'Google Sans Text', Roboto, san=
+s-serif;
+                font-size: 24px;
+                line-height: 80px;
+                text-align: center;">=D9=85=D9=86=D8=AA=D8=AF=D9=89 =E2=80=
+=8EYouTube
+</div>
+    <div style=3D"border: 1px solid #dadce0;
+                border-radius: 8px;
+                padding: 48px;">
+              =D9=85=D8=B1=D8=AD=D8=A8=D9=8B=D8=A7 User 491731826857972910=
+=D8=8C<br />
+    =D8=AA=D9=85 =D9=86=D8=B4=D8=B1 =D8=A5=D8=B9=D9=84=D8=A7=D9=86 =D8=AC=
+=D8=AF=D9=8A=D8=AF =D8=B9=D9=84=D9=89   <a href=3Dhttps://support.google.co=
+m/youtube/ style=3D"color: #1a73e8;
+                           text-decoration: none;">=D9=85=D9=86=D8=AA=D8=AF=
+=D9=89 YouTube: =F0=9F=94=8EFAQ : Cr=C3=A9er votre Communaut=C3=A9</a><br /=
+>
+    <table cellspacing=3D0>
+      <tr>
+          <td style=3D"padding-right: 16px">
+          <a href=3Dhttps://support.google.com/youtube/profile/270906724 ti=
+tle=3D"Jean- Baptiste">
+            <img src=3Dhttps://storage.googleapis.com/support-forums-api/av=
+atar/profile-270906724-2617149928151552501.jpeg style=3D"border-radius: 50%=
+;height: 40px;width: 40px;" aria-label=3D" Profile picture of Jean- Baptist=
+e">
+          </a>
+          </td>
+        <td style=3D"font-size: 12px">
+          <div>
+  <span style=3D"font-weight: 500">
+        <span style=3D"color: #4285f4">=D9=85=D8=AF=D9=8A=D8=B1 =D8=A7=D9=
+=84=D9=85=D9=86=D8=AA=D8=AF=D9=89</span>
+  </span>
+              <img src=3Dhttps://ssl.gstatic.com/support/content/mail-asset=
+s/ic_google_employee_24dp.png style=3D"height: 16px;
+                                                                margin-left=
+: 2px;
+                                                                vertical-al=
+ign: middle;
+                                                                width: 16px=
+;">
+          </div>
+            <a href=3Dhttps://support.google.com/youtube/profile/270906724 =
+aria-label=3D"Author of this post: Jean- Baptiste,
+            click to view profile " style=3Dtext-decoration:none;>
+          <span style=3D"color: #757575">Jean- Baptiste</span>
+          </a>
+        </td>
+      </tr>
+    </table>
+    <div style=3D"margin: 16px 0">
+    <div>Les Communaut&eacute;s sont un espace d&eacute;di&eacute; o&ugrave=
+; vous pouvez &eacute;changer avec votre audience, directement depuis votre=
+ cha&icirc;ne. Dans votre Communaut&eacute;, vos abonn&eacute;s peuvent dis=
+cuter de vos vid&eacute;os, partager des photos, lancer des sondages et eff=
+ectuer d&#39;autres activit&eacute;s qui g&eacute;n&egrave;rent plus d&#39;=
+engagement autour de vos vid&eacute;os. Vous pouvez choisir de proposer ou =
+non une Communaut&eacute; sur votre cha&icirc;ne.</div>
+<div>&nbsp;</div>
+<div>Vous pouvez cr&eacute;er votre propre Communaut&eacute; si :</div>
+<ul><li>vous pouvez publier des posts ;</li><li>vous avez plus de 16 ans et=
+ que votre cha&icirc;ne n&#39;est pas configur&eacute;e en tant qu&#39;<a h=
+ref=3Dhttps://support.google.com/youtube/answer/15253498 target=3D_blank re=
+l=3Dnoopener>exp&eacute;rience supervis&eacute;e</a>&nbsp;;</li><li>votre c=
+ha&icirc;ne n&#39;est pas d&eacute;finie comme&nbsp;<a href=3Dhttps://suppo=
+rt.google.com/youtube/answer/9528076 target=3D_blank rel=3Dnoopener>con&cce=
+dil;ue pour les enfants</a>&nbsp;;</li><li>votre cha&icirc;ne n&#39;est pas=
+ une cha&icirc;ne VEVO.</li></ul>
+<div>D&eacute;couvrez comment&nbsp;<a href=3Dhttps://support.google.com/you=
+tube/answer/15739725 target=3D_blank rel=3Dnoopener>mod&eacute;rer votre Co=
+mmunaut&eacute;</a>&nbsp;et&nbsp;<a href=3Dhttps://support.google.com/youtu=
+be/answer/11895180 target=3D_blank rel=3Dnoopener>d&eacute;finir des consig=
+nes pour votre cha&icirc;ne</a>&nbsp;concernant les posts.</div>
+<div>&nbsp;</div>
+<div><b>Activer votre Communaut&eacute;</b></div>
+<div><img src=3D//storage.googleapis.com/support-kms-prod/trfjjtMpcyWHF6qsR=
+O9CwzCTUlsfEHF3fpA2></div>
+<ol><li>Connectez-vous &agrave;&nbsp;<a href=3Dhttps://youtube.com/ target=
+=3D_blank rel=3Dnoopener>YouTube</a>.</li><li>Acc&eacute;dez &agrave; la pa=
+ge de votre cha&icirc;ne&nbsp;<img src=3D//lh3.googleusercontent.com/_KZw6i=
+FLPOiYyWMg4YA4SL-ec-Eitj91jD29eyhArvOWBOlmDYcgi9Dj973hpW0oDEA=3Dw48-h48>&nb=
+sp;Cliquez sur l&#39;onglet&nbsp;<b>Posts</b>.</li><li>Cliquez sur&nbsp;<b>=
+Activer ma communaut&eacute;</b>.</li></ol>
+<div>Vous pouvez &eacute;galement activer votre Communaut&eacute; dans YouT=
+ube Studio, dans les&nbsp;<a href=3Dhttps://support.google.com/youtube/answ=
+er/16622701 target=3D_blank rel=3Dnoopener>param&egrave;tres Contr&ocirc;le=
+s d&#39;acc&egrave;s au contenu</a>&nbsp;ou dans l&#39;onglet &quot;Communa=
+ut&eacute;&quot;. Pour ce faire, s&eacute;lectionnez&nbsp;<b>Posts de spect=
+ateurs</b>&nbsp;en haut de la page, puis&nbsp;<b>Activer</b>.</div>
+<div>&nbsp;</div>
+<div><b>R&eacute;digez un post de bienvenue</b></div>
+<div>&nbsp;</div>
+<div>Une fois que vous avez activ&eacute; votre Communaut&eacute;, vous pou=
+vez cr&eacute;er un post de bienvenue pour vos abonn&eacute;s.</div>
+<ol><li>Sur votre ordinateur, acc&eacute;dez &agrave; la page de votre cha&=
+icirc;ne.</li><li>Cliquez sur&nbsp;<b>Acc&eacute;der &agrave; la communaut&=
+eacute;</b>.</li><li>Dans la zone situ&eacute;e en haut de la page :<ul><li=
+>R&eacute;digez votre post de bienvenue, ajoutez des images ou cr&eacute;ez=
+ un sondage.</li></ul></li><li>Cliquez sur&nbsp;<b>Publier</b>.</li></ol>
+<div><b>R&eacute;pondre &agrave; un post</b></div>
+<div>&nbsp;</div>
+<div>Lorsqu&#39;un spectateur publie un post dans votre Communaut&eacute;, =
+vous pouvez lui r&eacute;pondre.</div>
+<ol><li>Sur votre ordinateur, acc&eacute;dez &agrave; la page de votre cha&=
+icirc;ne.</li><li>Cliquez sur&nbsp;<b>Acc&eacute;der &agrave; la communaut&=
+eacute;</b>.</li><li>Acc&eacute;dez au post auquel vous souhaitez r&eacute;=
+pondre&nbsp;<img src=3D//lh3.googleusercontent.com/_KZw6iFLPOiYyWMg4YA4SL-e=
+c-Eitj91jD29eyhArvOWBOlmDYcgi9Dj973hpW0oDEA=3Dw48-h48>&nbsp;cliquez sur&nbs=
+p;<b>Commentaires</b>&nbsp;<img src=3D//lh3.googleusercontent.com/IR-jwOSGb=
+3LEKRrF6E8w-mvrMeA9Djc9T1AlEjuapweE78RwlHMTRUqyjOsAPYj7wvEI=3Dh36>. La page=
+ &quot;Commentaires sur le post&quot; s&#39;affiche.</li><li>Saisissez votr=
+e r&eacute;ponse.</li><li>Cliquez sur&nbsp;<b>Publier</b>.</li></ol>
+<div>&nbsp;</div>
+<div>J&#39;esp&egrave;re que ces &eacute;l&eacute;ments vous aideront.<div>=
+&nbsp;</div>
+<div>Jean-Baptiste TeamYouTube</div></div>
+    </div>
+    <div style=3D"margin: 24px 0">  <a href=3Dhttps://support.google.com/yo=
+utube/thread/396763700?hl=3Dfr style=3D"background: #1a73e8;
+                           border-radius: 4px;
+                           box-sizing: border-box;
+                           color: #fff;
+                           display: inline-block;
+                           font-family: 'Google Sans', 'Google Sans Text', =
+Roboto, sans-serif;
+                           font-weight: 500;
+                           line-height: 36px;
+                           min-width: 88px;
+                           padding: 0 16px;
+                           text-align: center;
+                           text-decoration: none;">=D8=B9=D8=B1=D8=B6 =D8=
+=A7=D9=84=D8=A5=D8=B9=D9=84=D8=A7=D9=86
+</a>
+</div>
+      <div style=3D"color: #757575; margin-top: 40px">
+          =D9=84=D9=86 =D9=8A=D8=AA=D9=85 =D9=86=D8=B4=D8=B1 =D8=A7=D9=84=
+=D8=B1=D8=AF=D9=88=D8=AF =D8=B9=D9=84=D9=89 =D9=87=D8=B0=D9=87 =D8=A7=D9=84=
+=D8=B1=D8=B3=D8=A7=D9=84=D8=A9 =D8=A7=D9=84=D8=A5=D9=84=D9=83=D8=AA=D8=B1=
+=D9=88=D9=86=D9=8A=D8=A9.
+      </div>
+
+    </div>
+  </div>
+  <div style=3D"color: #757575;
+              margin-top: 16px;">
+      <div style=3D"padding: 16px">
+        <a href=3Dhttps://support.google.com/s/community?unsubscribe_forum=
+=3D659278 style=3D"color: #1a73e8;
+                           text-decoration: none;">=D8=A5=D9=8A=D9=82=D8=A7=
+=D9=81</a> =D8=A7=D9=84=D8=A5=D8=B4=D8=B9=D8=A7=D8=B1=D8=A7=D8=AA =D8=A8=D8=
+=B4=D8=A3=D9=86 =D9=87=D8=B0=D8=A7 =D8=A7=D9=84=D9=85=D9=86=D8=AA=D8=AF=D9=
+=89.
+
+      </div>
+    <div style=3D"font-size: 12px;
+                line-height: 16px;
+                padding: 8px 16px 24px;
+                text-align: center;">
+      <div>=D9=81=D8=B1=D9=8A=D9=82 =D8=AF=D8=B9=D9=85 Google</div>
+      <div>=C2=A9 2025 Google Inc.</div>
+      <div>1600 Amphitheatre Parkway</div>
+      <div>Mountain View, CA 94043</div>
+
+   </div>
+  </div>
+</body>
+</html>
+
+
+
+--00000000000004b23106468c4bea--
